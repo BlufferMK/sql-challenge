@@ -23,3 +23,8 @@ ORDER BY frequency DESC;
 
 I only had to put in the table name as 'employees'
 
+I recognize that the last_names were selected and COUNT(*) was selecting all of the last names 
+
+Khangwelo (tutor) helped me to refine my joins without creating additional tables and using aliases to streamline the code.
+
+
