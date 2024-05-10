@@ -1,5 +1,19 @@
 # sql-challenge
 
+What if you had ancient csv files containing historical data on employees at your company in the 1980s and the 1990s and you needed to pull information from them?  Perhaps you could use Excel, but what if the files are large and are in tables that might lend themself to being used in a database?
+
+This challenge imports these csv files into a SQL database engineered for the purpose.  The data were modeled and an entity relationship diagram was created.  This helped in developing the schema for storing the data in the relational database structure.
+
+![Entity Relationship Diagram](QUICKDBD.png)
+
+Once the data were in the SQL database, querying with SQL allowed for analysis of the data and finding the required information.
+
+![employees table](image.png)
+
+
+
+
+
 I used the Xpert Learning Assistant tool for a few of the steps in the project.
 
 Most importantly, I learned how to filter by dates  -  I asked how to get all employees hired in 1986 and it told me to use this code

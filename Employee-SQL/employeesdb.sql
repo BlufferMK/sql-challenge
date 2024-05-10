@@ -29,15 +29,14 @@ dept_no VARCHAR(30) NOT NULL,
 FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
 );
 
--- first attempt to import failed - I removed the PRIMARY KEY coding
--- perhaps there are duplicates in the emp_no column?
--- set the primary key
+
+-- set the primary key  I'm using a composite primary key 
+-- employees may switch departments
 ALTER TABLE dept_emp
 ADD PRIMARY KEY (emp_no,dept_no);
--- emp_no 10010 is duplicated! perhaps there are others
--- I'm using a composite primary key - employees may switch departments
 
 --create dept_manager table
+--- duplicate managers - used a composite primary key
 CREATE TABLE dept_manager (
 dept_no VARCHAR(30) NOT NULL,
 emp_no INT NOT NULL,
@@ -45,7 +44,7 @@ PRIMARY KEY (dept_no,emp_no),
 FOREIGN KEY (dept_no) REFERENCES departments (dept_no),
 FOREIGN KEY (emp_no) REFERENCES employees (emp_no)
 );
---- duplicate managers - used a composite primary key
+
 
 --create salaries table
 CREATE TABLE salaries (
@@ -94,7 +93,7 @@ INNER JOIN departments AS ds
 ON de.dept_no = ds.dept_no
 ORDER BY ds.dept_name;
 
---Hercules B.
+--Find information on all employees named Hercules B.
 
 SELECT first_name, last_name, sex FROM employees
 WHERE first_name = 'Hercules' AND last_name like 'B%';
@@ -133,10 +132,11 @@ WHERE ds.dept_name IN ('Sales', 'Development')
 ORDER BY ds.dept_name;
 
 
--- last name frequency
+-- determine the last name frequency
 SELECT last_name, 
 COUNT(*) AS frequency
 FROM employees
 GROUP BY last_name
+-- descending order
 order by frequency DESC;
---DESC is for descending order - I got help from the Xpert Learning Assistant for this
+
